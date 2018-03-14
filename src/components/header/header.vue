@@ -33,6 +33,14 @@
       <div class="detail-wrapper clearfix">
         <div class="detail-main">
           <h1 class="name">{{seller.name}}</h1>
+          <div class="star-wrapper">
+            <star :size="48" :score="seller.score"></star>
+          </div>
+          <div class="title">
+            <div class="line"></div>
+            <div class="text">优惠信息</div>
+            <div class="line"></div>
+          </div>
         </div>
       </div>
       <div class="detail-close">
@@ -43,6 +51,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import star from '../star/star.vue'
+
   export default {
     props: {
       seller: {
@@ -64,6 +74,10 @@
 
     created () {
       this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
+    },
+
+    components: {
+      star
     }
   }
 </script>
@@ -203,6 +217,24 @@
             text-align: center
             font-size: 16px
             font-weight: 700
+          .star-wrapper
+            margin-top: 18px
+            padding: 2px 0
+            text-align: center
+          .title
+            display: flex
+            width: 80%;
+            margin: 28px auto 24px auto
+            .line
+              flex: 1
+              position: relative
+              top: -6px
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+            .text
+              padding: 0 12px
+              font-weight: 700
+              font-size: 14px
+
       .detail-close
         position: relative
         width: 32px
