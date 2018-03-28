@@ -27,5 +27,48 @@
     z-index: 50
     width: 100%
     height: 48px
+    .content
+      display: flex
+      background: #141d27
+      font-size: 0 // 内容如果有inline-block，font-size需要给0
+      .content-left
+        flex: 1
+        .logo-wrapper
+          display: inline-block
+          position: relative
+          top: -10px
+          margin: 0 12px
+          padding: 6px
+          width: 56px
+          height: 56px
+          box-sizing: border-box
+          vertical-align: top
+          border-radius: 50%
+          background: #141d27
+          .logo
+            width: 100%
+            height: 100%
+            border-radius: 50%
+            background: #2b343c
+            text-align: center
+            .icon-shopping_cart
+              font-size: 24px
+              color: #80858a
+              line-height: 44px
+        .price
+          display: inline-block
+          vertical-align: top
+          margin-top: 12px
+          line-height: 24px
+          padding-right: 12px
+          box-sizing: border-box
+          border-right: 1px solid rgba(255, 255, 255, 0.1)
+          font-size: 16px
+          font-weight: 700
+        .desc
+          display: inline-block
+      .content-right
+        flex: 0 0 105px
+        width: 105px
 
 </style>
