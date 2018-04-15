@@ -38,7 +38,7 @@
         </li>
       </ul>
     </div>
-    <shopcart :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice"
+    <shopcart ref="shopcart" :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice"
               :minPrice="seller.minPrice"></shopcart>
   </div>
 </template>
@@ -121,7 +121,9 @@
       },
 
       _drop(target) {
-
+        this.$nextTick(() => {
+          this.$refs.shopcart.drop(target); // 使用父组件调用子组件方法
+        })
       },
 
       _initScroll () {
