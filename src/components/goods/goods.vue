@@ -30,7 +30,7 @@
                   <span class="now">￥{{food.price}}</span><span v-show="food.oldPrice" class="old">￥{{food.oldPrice}}</span>
                 </div>
                 <div class="cartcontrol-wrapper">
-                  <cartcontrol :food="food"></cartcontrol>
+                  <cartcontrol :food="food" @add="addFood"></cartcontrol>
                 </div>
               </div>
             </li>
@@ -120,6 +120,10 @@
         this.foodScroll.scrollToElement(el, 300); // 300为动画事件
       },
 
+      _drop(target) {
+
+      },
+
       _initScroll () {
         this.menuScroll = new BScroll(this.$refs.menuWrapper, {
           click: true // 在pc端会触发点击两次
@@ -144,6 +148,10 @@
           this.listHeight.push(height)
         }
       },
+
+      addFood(target) {
+        this._drop(target)
+      }
     }
   };
 </script>

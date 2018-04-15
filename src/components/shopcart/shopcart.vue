@@ -17,11 +17,41 @@
         </div>
       </div>
     </div>
+    <div class="ball-container">
+      <div v-for="ball in balls">
+        <transition name="drop">
+          <div v-show="ball.show" class="ball">
+            <div class="inner"></div>
+          </div>
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
+    data() {
+      return {
+        balls: [
+          {
+            show: false
+          },
+          {
+            show: false
+          },
+          {
+            show: false
+          },
+          {
+            show: false
+          },
+          {
+            show: false
+          }
+        ]
+      }
+    },
     props: {
       selectFoods: {
         type: Array,
@@ -72,6 +102,12 @@
         }
       }
     },
+
+    methods: {
+      drop(el) {
+
+      }
+    }
 
   }
 </script>
@@ -166,4 +202,18 @@
           &.enough
             background: #00b43c
             color: #fff
+    .ball-container
+      .ball
+        position: fixed
+        left: 32px
+        bottom: 22px
+        z-index: 200
+        &.drop-transition
+          transition: all 0.4s
+          .inner
+            width: 16px
+            height: 16px
+            border-radius: 50%
+            background: rgb(0, 160, 220)
+            transition: all 0.4s linear
 </style>
